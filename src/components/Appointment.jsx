@@ -6,48 +6,57 @@ const servicesData = [
     category: "HairCut",
     icon: "/AppointmentIcon/cut.png",
     subServices: [
-      { name: "Haircuts (20 min)", price: 399 },
-      { name: "Kids Haircut", price: 299 },
+      { name: "Hair Set & styling", price: 399 },
+      { name: "Hair Clean Shave", price: 399 },
     ],
   },
   {
     category: "Beard Grooming",
     icon: "/AppointmentIcon/groming.png",
     subServices: [
-      { name: "Beard Trim", price: 199 },
-      { name: "Shaving", price: 149 },
+      { name: "Beard Triming & Styling(with cleansing)", price: 259 },
+      { name: "Beard Clean Shave(with cleansing)", price: 259 },
     ],
   },
   {
     category: "Hair Coloring",
     icon: "/AppointmentIcon/hair.png",
     subServices: [
-      { name: "Full Color", price: 999 },
-      { name: "Highlights", price: 699 },
+      { name: "Hair Color Application", price: 259, description:'(without color)' },
+      { name: "Hair Color Loriyal inoa(2, 3, 4)", price: 649 },
+      { name: "Beard Color with Application", price: 259 },
     ],
   },
   {
     category: "Facials & Skin Care",
     icon: "/AppointmentIcon/facial.png",
     subServices: [
-      { name: "Deep Cleansing", price: 499 },
-      { name: "Hydration Treatment", price: 599 },
+      { name: "D-Tan O3", price: 599 , description:"Cleansing, Scurbing, Toning, D Tan Pack, Massage, Moisturizer" },
+      { name: "Clean Up O3 Facial", price: 1099, description:"Cleansing, Scurbing, steem, Spatula, Toning, Massage Clean, Pack, Massage & Moisturizer"},
+      { name: "Gold Facial", price: 1399, description:"Cleansing, Scurbing, steem, Spatula, Toning, Massage Clean, Pack, Massage & Moisturizer" },
+      { name: "Brightning & Whiting", price: 1799, description:"Cleansing, Scurbing, steem, Spatula, Toning, Massage Clean, Pack, Massage(20 min head,neck,shoulder,hand,body & skin) & Moisturizer"},
+
     ],
   },
   {
     category: "Massages",
     icon: "/AppointmentIcon/massage.png",
     subServices: [
-      { name: "Head Massage", price: 399 },
-      { name: "Full Body Massage", price: 1299 },
+      { name: "Head Massage(15 min)", price: 159 },
+      { name: "Head & Shoulder(25 min)", price: 259 },
+      { name: "Head & Neck Shoulder(40 min)", price: 499 },
+      { name: "Full Body Massages", price: 999 },
+      { name: "Foot Massage(15 min)", price: 259 },
+
     ],
   },
   {
-    category: "Manicure & Pedicure",
+    category: "Pedicure & Manicure",
     icon: "/AppointmentIcon/meni.png",
     subServices: [
-      { name: "Manicure", price: 499 },
-      { name: "Pedicure", price: 599 },
+      { name: "Express Padicure", price: 599, description:"Nail Cut,Filling,Cutical Cut,Side Wall Cut,Foot & Leg Cleaning,Foot Scuping,Foot Massages" },
+      { name: "Deep Pedicure", price: 1199, description:"Nail Cut,Filling,Cutical Cut,Side Wall Cut,Foot & Leg Cleaning,Foot Scuping,Scubing,Foot Massage,Mask(D-Tan remove)" },
+      { name: "Express Manicure", price: 599, description:"Nail Cut,Filling,Cutical Cut,Side Wall Cut,Nail Plet cleaning,Hand Cleaning, Massage with Cream" },
     ],
   },
 ];
@@ -58,7 +67,6 @@ export default function Appointment() {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
-    email: "",
     date: "",
     time: "",
     address: "",
@@ -102,7 +110,6 @@ export default function Appointment() {
     if (
       !formData.fullName ||
       !formData.phone ||
-      !formData.email ||
       !formData.date ||
       !formData.time ||
       !formData.address
@@ -115,7 +122,11 @@ export default function Appointment() {
       alert("Phone number must be 10 digits and cannot start with 0.");
       return;
     }
-
+// Function to format the date to DD/MM/YYYY
+const formatDate = (dateString) => {
+  const [year, month, day] = dateString.split("-");
+  return `${day}/${month}/${year}`;
+};
     const serviceList = selectedServices
       .map((s) => `- ${s.name} (₹${s.price})`)
       .join("\n");
@@ -124,8 +135,7 @@ export default function Appointment() {
       
   *Name:* ${formData.fullName}
   *Phone:* ${formData.phone}
-  *Email:* ${formData.email}
-  *Preferred Date:* ${formData.date}
+  *Preferred Date:* ${formatDate(formData.date)}
   *Preferred Time:* ${formatTime(formData.time)}
   *Address:* ${formData.address}
   
@@ -136,7 +146,7 @@ export default function Appointment() {
   
   Thank you! 😊`;
 
-    const phoneNumber = "916291170712"; // Replace with your WhatsApp number (without '+' sign)
+    const phoneNumber = "916289579227"; // Replace with your WhatsApp number (without '+' sign)
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
@@ -249,26 +259,24 @@ export default function Appointment() {
                   <div className="p-2 bg-[#FFEED1]">
                     {service.subServices.map((subService, subIndex) => (
                       <label
-                        key={subIndex}
-                        className="block py-1 text-[#000000] font-[275] font-[poppins] flex justify-between"
-                      >
-                        <div>
+                      key={subIndex}
+                      className="block py-1 text-[#000000] font-[275] font-[poppins]"
+                    >
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center">
                           <input
                             type="checkbox"
-                            checked={selectedServices.some(
-                              (s) => s.name === subService.name
-                            )}
-                            onChange={() =>
-                              toggleService(subService.name, subService.price)
-                            }
+                            checked={selectedServices.some((s) => s.name === subService.name)}
+                            onChange={() => toggleService(subService.name, subService.price)}
                             className="mr-2"
                           />
                           {subService.name}
                         </div>
-                        <span className="font-[300] font-[inter]">
-                          ₹{subService.price}
-                        </span>
-                      </label>
+                        <span className="font-[300] font-[inter]">₹{subService.price}</span>
+                      </div>
+                      <div className="text-gray-600 text-sm mt-1">{subService.description}</div>
+                    </label>
+                    
                     ))}
                   </div>
                 )}
@@ -327,16 +335,6 @@ export default function Appointment() {
                 className="w-full p-2 border border-[#00000066] rounded mb-2"
               />
 
-              <label className="block font-[500] text-[#633B27] font-[poppins]">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                required
-                className="w-full p-2 border border-[#00000066] rounded mb-2"
-              />
 
               <label className="block font-[500] text-[#633B27] font-[poppins]">
                 Preferred Date
