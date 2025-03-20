@@ -62,7 +62,7 @@ export default function Home() {
           </video>
 
           {/* Play/Pause Button */}
-          <button
+          {/* <button
             onClick={togglePlayPause}
             className="absolute inset-0 flex items-center justify-center z-3 transition-all"
           >
@@ -71,7 +71,7 @@ export default function Home() {
             ) : (
               <FaPlay className="text-white text-3xl sm:text-4xl md:text-5xl" />
             )}
-          </button>
+          </button> */}
 
           {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/30"></div>

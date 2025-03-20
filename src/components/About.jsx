@@ -36,7 +36,7 @@ export default function About() {
           </video>
 
           {/* Play/Pause Button */}
-          <button
+          {/* <button
             onClick={togglePlayPause}
             className="absolute inset-0 flex items-center justify-center z-3 transition-all"
           >
@@ -45,7 +45,7 @@ export default function About() {
             ) : (
               <FaPlay className="text-white text-3xl sm:text-4xl md:text-5xl" />
             )}
-          </button>
+          </button> */}
 
           {/* Dark Overlay for Readability */}
           <div className="absolute inset-0 bg-black/30"></div>
@@ -155,7 +155,7 @@ export default function About() {
           <div className="flex flex-col items-center text-[#FFDFA4]">
             <GiRazor className="text-5xl  mb-2" />
             <h2 className="text-4xl text-[#FFDFA4] font-[inter] font-[600]">
-              2500
+              250
             </h2>
             <p className="text-sm uppercase tracking-wide text-[#FFDFA4] font-[poppins]">
               Shaves
@@ -166,7 +166,7 @@ export default function About() {
           <div className="flex flex-col items-center text-[#FFDFA4]">
             <FaCut className="text-5xl mb-2" />
             <h2 className="text-4xl text-[#FFDFA4] font-[inter] font-[600]">
-              4500
+              500
             </h2>
             <p className="text-sm uppercase tracking-wide text-[#FFDFA4] font-[poppins]">
               Haircuts
@@ -177,7 +177,7 @@ export default function About() {
           <div className="flex flex-col items-center text-[#FFDFA4]">
             <FaStore className="text-5xl mb-2" />
             <h2 className="text-4xl text-[#FFDFA4] font-[inter] font-[600]">
-              23
+              3
             </h2>
             <p className="text-sm uppercase tracking-wide text-[#FFDFA4] font-[poppins]">
               Open Shops
@@ -208,7 +208,7 @@ export default function About() {
           </p>
 
           {/* Call to Action Button */}
-          <Link to="/contact-us">
+          <Link to="/book-appointment">
             <button className="bg-[#4A2E1D] text-white px-6 py-3  font-[400] font-[poppins]">
               Book Now
             </button>

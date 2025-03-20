@@ -71,7 +71,7 @@ export default function Service() {
           </video>
 
           {/* Play/Pause Button */}
-          <button
+          {/* <button
             onClick={togglePlayPause}
             className="absolute inset-0 flex items-center justify-center z-3 transition-all"
           >
@@ -80,7 +80,7 @@ export default function Service() {
             ) : (
               <FaPlay className="text-white text-3xl sm:text-4xl md:text-5xl" />
             )}
-          </button>
+          </button> */}
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/30"></div>
@@ -172,10 +172,10 @@ export default function Service() {
                 </p>
                 <ul className="mt-4 text-[#633B27] font-[400] font-[poppins] space-y-2 text-base sm:text-lg">
                   {[
-                    { name: "Simple Haircut", price: "₹799" },
-                    { name: "Crew Cut", price: "₹499" },
+                    { name: "Hair Set & styling", price: "₹399" },
+                    { name: "Hair Clean Shave", price: "₹399" },
                     { name: "Fade Cut", price: "₹399" },
-                    { name: "Undercut", price: "₹599" },
+                    { name: "Undercut", price: "₹399" },
                   ].map((item, index) => (
                     <li
                       key={index}
@@ -185,12 +185,6 @@ export default function Service() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#"
-                  className="text-[#633B27] font-[500] font-[inter] mt-3 inline-block underline"
-                >
-                  View all
-                </a>
               </div>
             </div>
 
@@ -215,10 +209,16 @@ export default function Service() {
                 </p>
                 <ul className="mt-4 text-[#633B27] font-[400] font-[poppins] space-y-2 text-base sm:text-lg">
                   {[
-                    { name: "Full Beard", price: "₹799" },
-                    { name: "Short Beard", price: "₹499" },
-                    { name: "Stubble Beard", price: "₹399" },
-                    { name: "Anchor Beard", price: "₹599" },
+                    {
+                      name: "Beard Triming & Styling(with cleansing)",
+                      price: "₹259",
+                    },
+                    {
+                      name: "Beard Clean Shave(with cleansing)",
+                      price: "₹259",
+                    },
+                    { name: "Stubble Beard", price: "₹259" },
+                    { name: "Anchor Beard", price: "₹259" },
                   ].map((item, index) => (
                     <li
                       key={index}
@@ -228,12 +228,6 @@ export default function Service() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#"
-                  className="text-[#633B27] font-[500] font-[inter] mt-3 inline-block underline"
-                >
-                  View all
-                </a>
               </div>
             </div>
           </div>
@@ -270,10 +264,12 @@ export default function Service() {
                 </p>
                 <ul className="mt-4 text-[#633B27] font-[400] font-[poppins] space-y-2 text-base sm:text-lg">
                   {[
-                    { name: "Simple Haircut", price: "₹799" },
-                    { name: "Crew Cut", price: "₹499" },
-                    { name: "Fade Cut", price: "₹399" },
-                    { name: "Undercut", price: "₹599" },
+                    {
+                      name: "Hair Color Application(without color)",
+                      price: "₹259",
+                    },
+                    { name: "Hair Color Loriyal inoa(2, 3, 4)", price: "₹649" },
+                    { name: "Beard Color with Application", price: "₹259" },
                   ].map((item, index) => (
                     <li
                       key={index}
@@ -283,12 +279,6 @@ export default function Service() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#"
-                  className="text-[#633B27] font-[500] font-[inter] mt-3 inline-block underline"
-                >
-                  View all
-                </a>
               </div>
             </div>
 
@@ -313,10 +303,10 @@ export default function Service() {
                 </p>
                 <ul className="mt-4 text-[#633B27] font-[400] font-[poppins] space-y-2 text-base sm:text-lg">
                   {[
-                    { name: "Full Beard", price: "₹799" },
-                    { name: "Short Beard", price: "₹499" },
-                    { name: "Stubble Beard", price: "₹399" },
-                    { name: "Anchor Beard", price: "₹599" },
+                    { name: "D-Tan O3", price: "₹599" },
+                    { name: "Clean Up O3 Facial", price: "₹1099" },
+                    { name: " Gold Facial", price: "₹1399" },
+                    { name: "Brightning & Whiting", price: "₹1799" },
                   ].map((item, index) => (
                     <li
                       key={index}
@@ -326,18 +316,12 @@ export default function Service() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#"
-                  className="text-[#633B27] font-[500] font-[inter] mt-3 inline-block underline"
-                >
-                  View all
-                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Pricing Section 2 */}
+        {/* Pricing Section 3 */}
         <section
           className="relative py-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-cover bg-center"
           style={{ backgroundImage: "url('/pricing/bg2.png')" }} // Replace with actual background image
@@ -361,17 +345,17 @@ export default function Service() {
               {/* Text & Pricing on the Right */}
               <div className="mt-6 md:mt-0 md:ml-8 lg:ml-12 max-w-lg">
                 <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[50px] font-[600] font-[playfair] text-[#633B27]">
-                  Hair Coloring
+                  Massages
                 </h2>
                 <p className="text-[#633B2780] font-[400] font-[poppins] mt-2">
-                  A haircut refreshes your look and boosts confidence.
-                </p>
+                Relaxing head, neck, and shoulder massages for ultimate stress relief.                </p>
                 <ul className="mt-4 text-[#633B27] font-[400] font-[poppins] space-y-2 text-base sm:text-lg">
                   {[
-                    { name: "Simple Haircut", price: "₹799" },
-                    { name: "Crew Cut", price: "₹499" },
-                    { name: "Fade Cut", price: "₹399" },
-                    { name: "Undercut", price: "₹599" },
+                    { name: "Head Massage(15 min)", price: "₹159" },
+                    { name: "Head & Shoulder(25 min)", price: "₹259" },
+                    { name: "Head & Neck Shoulder(40 min)", price: "₹499" },
+                    { name: "Full Body Massages", price: "₹999" },
+                    { name: "Foot Massage(15 min)", price: "₹259" },
                   ].map((item, index) => (
                     <li
                       key={index}
@@ -381,12 +365,6 @@ export default function Service() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#"
-                  className="text-[#633B27] font-[500] font-[inter] mt-3 inline-block underline"
-                >
-                  View all
-                </a>
               </div>
             </div>
 
@@ -404,17 +382,16 @@ export default function Service() {
               {/* Text & Pricing on the Left */}
               <div className="mt-6 md:mt-0 md:mr-8 lg:mr-12 max-w-lg">
                 <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[50px] font-[600] font-[playfair] text-[#633B27]">
-                  Facials & Skin Care
+                  Manicure & Pedicure
                 </h2>
                 <p className="text-[#633B2780] font-[400] font-[poppins] mt-2">
-                  Beard grooming keeps facial hair neat, healthy, and stylish.
+                  Premium hand and foot care for a polished, confident look.
                 </p>
                 <ul className="mt-4 text-[#633B27] font-[400] font-[poppins] space-y-2 text-base sm:text-lg">
                   {[
-                    { name: "Full Beard", price: "₹799" },
-                    { name: "Short Beard", price: "₹499" },
-                    { name: "Stubble Beard", price: "₹399" },
-                    { name: "Anchor Beard", price: "₹599" },
+                    { name: "Express Padicure", price: "₹599" },
+                    { name: "Deep Pedicure", price: "₹1199" },
+                    { name: "Express Manicure", price: "₹599" },
                   ].map((item, index) => (
                     <li
                       key={index}
@@ -424,12 +401,7 @@ export default function Service() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#"
-                  className="text-[#633B27] font-[500] font-[inter] mt-3 inline-block underline"
-                >
-                  View all
-                </a>
+                
               </div>
             </div>
           </div>

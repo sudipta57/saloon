@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate,Link } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
+
+  const handleServiceClick = (service) => {
+    navigate("/book-appointment");
+  };
   return (
     <div>
       <footer
@@ -9,7 +15,6 @@ export default function Footer() {
           backgroundImage: "url('/footer_bg.png')",
         }}
       >
-
         <div className="relative w-full mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 text-white">
           {/* Left Section - Brand Info */}
           <div>
@@ -39,12 +44,22 @@ export default function Footer() {
           <div>
             <h3 className="text-lg text-[#633B27] font-[600]">Services</h3>
             <ul className="mt-3 space-y-2 text-[#633B27] font-[400]">
-              <li>Haircuts & Styling</li>
-              <li>Beard Grooming</li>
-              <li>Hair Coloring</li>
-              <li>Facials & Skin Care</li>
-              <li>Massages</li>
-              <li>Manicure & Pedicure</li>
+              {[
+                "Haircuts & Styling",
+                "Beard Grooming",
+                "Hair Coloring",
+                "Facials & Skin Care",
+                "Massages",
+                "Manicure & Pedicure",
+              ].map((service, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleServiceClick(service)}
+                  className="cursor-pointer hover:underline"
+                >
+                  {service}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -52,10 +67,11 @@ export default function Footer() {
           <div>
             <h3 className="text-lg text-[#633B27] font-[600]">Company</h3>
             <ul className="mt-3 space-y-2 text-[#633B27] font-[400]">
-              <li>About Us</li>
-              <li>Privacy Policy</li>
-              <li>Terms & Conditions</li>
-              <li>Cookie Settings</li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/our-service">Our Service</Link></li>
+              <li><Link to="/about-us">About Us</Link></li>
+              <li><Link to="/contact-us">Contact Us</Link></li>
+              <li><Link to="/book-appointment">Book Appointment</Link></li>
             </ul>
           </div>
 
@@ -85,7 +101,8 @@ export default function Footer() {
         {/* Bottom Footer */}
         <hr className="my-8 border-t border-[#633B27]" />
         <p className="text-center text-[#633B27] text-sm relative">
-          © 2024 Happy Hour Pvt Ltd. All Rights Reserved
+          © 2025 GET SET LOOK COPYRIGHT@GETSETLOOK | RESERVE RIGHT AND DEVELOPED
+          BY SECWEBXPERTS PVT LTD.
         </p>
       </footer>
     </div>

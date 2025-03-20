@@ -16,20 +16,19 @@ function App() {
   return (
     <div className="max-w-[1300px] mx-auto">
       <Router>
-        <ScrollToTop/>
-      <Navbar />
-      <SocialIcons/>
+        <ScrollToTop />
+        <Navbar />
+        <SocialIcons />
         <Routes>
           {/* Wrap All Pages in Layout */}
           <Route index element={<Home />} />
-          <Route path="/our-service" element={<Service/>}/>
-          <Route path="/about-us" element={<About/>}/>
-          <Route path="/contact-us" element={<Contact/>}/>
-          <Route path="/book-appointment" element={<Appointment/>}/>
-
+          <Route path="/our-service" element={<Service />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/book-appointment" element={<Appointment />} />
         </Routes>
+        <Footer />
       </Router>
-      <Footer/>
     </div>
   );
 }

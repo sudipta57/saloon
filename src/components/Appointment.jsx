@@ -173,7 +173,7 @@ const formatDate = (dateString) => {
       {/* Left Section */}
       <div className="col-span-1">
         <h2 className="text-[28px] sm:text-[32px] md:text-[36px] font-[600] font-[playfair] text-[#633B27] mb-4">
-          Happy Hour <span className="text-[#CB6F42]">Services</span>
+          GET SET <span className="text-[#CB6F42]">LOOK</span>
         </h2>
         <div className="grid grid-cols-2 gap-3 bg-[#FDF7F0] p-4 sm:p-6 border-[#CB6F42] border rounded-xl">
           {[
@@ -216,7 +216,7 @@ const formatDate = (dateString) => {
             <source src="/about/vedio.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <button
+          {/* <button
             onClick={togglePlayPause}
             className="absolute inset-0 flex items-center justify-center z-3 transition-all"
           >
@@ -225,7 +225,7 @@ const formatDate = (dateString) => {
             ) : (
               <FaPlay className="text-white text-4xl md:text-5xl" />
             )}
-          </button>
+          </button> */}
         </div>
 
         {/* Service Categories & Booking Form */}

@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 
 export default function Contact() {
- 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -19,12 +18,59 @@ export default function Contact() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "phone") {
+      // Allow only numbers
+      if (!/^\d*$/.test(value)) return;
+
+      // Restrict length to 10 digits
+      if (value.length > 10) return;
+
+      // First digit should not be 0
+      if (value.length === 1 && value[0] === "0") return;
+    }
+
     setFormData({ ...formData, [name]: value });
+    // setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+
+    // Replace with your WhatsApp number (including country code)
+    const whatsappNumber = "916291170712"; // Example: "919876543210" for India
+
+    // Formatting the message
+    const message = `Hello, I would like to inquire:
+    
+- *Name:* ${formData.firstName} ${formData.lastName}
+- *Email:* ${formData.email}
+- *Phone:* ${formData.phone}
+- *State:* ${formData.state}
+- *City:* ${formData.city}
+- *Comment:* ${formData.comment}
+    
+Please let me know.`;
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // WhatsApp link
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp
+    window.open(whatsappLink, "_blank");
+
+    // Reset form after sending
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      state: "",
+      city: "",
+      comment: "",
+    });
   };
   return (
     <div className=" justify-center items-center lg:mt-[80px] sm:mt-[40px]md:mt-[60px] mt-[80px]">
@@ -45,7 +91,7 @@ export default function Contact() {
           <div className="flex flex-col items-center text-[#FFDFA4]">
             <GiRazor className="text-5xl mb-2" />
             <h2 className="text-4xl text-[#FFDFA4] font-[inter] font-[600]">
-              2500
+              250
             </h2>
             <p className="text-sm uppercase tracking-wide text-[#FFDFA4] font-[poppins]">
               Shaves
@@ -56,7 +102,7 @@ export default function Contact() {
           <div className="flex flex-col items-center text-[#FFDFA4]">
             <FaCut className="text-5xl mb-2" />
             <h2 className="text-4xl text-[#FFDFA4] font-[inter] font-[600]">
-              4500
+              500
             </h2>
             <p className="text-sm uppercase tracking-wide text-[#FFDFA4] font-[poppins]">
               Haircuts
@@ -67,7 +113,7 @@ export default function Contact() {
           <div className="flex flex-col items-center text-[#FFDFA4]">
             <FaStore className="text-5xl mb-2" />
             <h2 className="text-4xl text-[#FFDFA4] font-[inter] font-[600]">
-              23
+              3
             </h2>
             <p className="text-sm uppercase tracking-wide text-[#FFDFA4] font-[poppins]">
               Open Shops
@@ -99,7 +145,7 @@ export default function Contact() {
           {/* Right Section - Form */}
           <div className="lg:w-1/2 w-full p-6 sm:p-8">
             <h3 className="text-xs sm:text-sm font-medium text-[#6B0606] font-[Poppins]">
-              HAPPY HOURS
+              GET SET LOOK
             </h3>
             <h2 className="text-3xl sm:text-[35px] md:text-[40px] font-bold font-[Playfair] mt-2">
               Book <span className="text-[#c86d3d]">Appointment</span>
@@ -159,6 +205,8 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     placeholder="Phone Number"
+                    pattern="^[1-9][0-9]{9}$" // HTML validation (ensures first digit is not 0 and length is 10)
+                    title="Phone number must be 10 digits and should not start with 0"
                     className="px-3 py-2 border rounded w-full bg-gray-50 text-sm sm:text-base"
                   />
                 </div>
@@ -201,7 +249,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-[#633B27] text-white p-3 mt-6 rounded text-lg sm:text-xl font-bold hover:bg-[#3d1e08] transition font-[Playfair]"
@@ -227,9 +274,10 @@ export default function Contact() {
             your appointment today!
           </p>
           <Link to="/book-appointment">
-          <button className="mt-4 bg-white text-[#633B27] px-6 py-2 font-[600] font-[poppins] hover:bg-gray-200">
-            Book Now
-          </button></Link>
+            <button className="mt-4 bg-white text-[#633B27] px-6 py-2 font-[600] font-[poppins] hover:bg-gray-200">
+              Book Now
+            </button>
+          </Link>
         </div>
 
         {/* Right Section (Image) */}
